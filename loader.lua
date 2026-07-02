@@ -410,7 +410,18 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     ScriptList.HorizontalAlignment = Enum.HorizontalAlignment.Center
     ScriptList.SortOrder = Enum.SortOrder.LayoutOrder
 
-    local function CreateCard(name, desc, icon, placeId, scriptUrl)
+    local FIAS_IDS = {17698425045, 86098085533596, 18248633989}
+
+    local function CreateCard(name, desc, icon, placeIds, scriptUrl)
+        local validPlace = false
+        if type(placeIds) == "table" then
+            for _, id in ipairs(placeIds) do
+                if PlaceId == id then validPlace = true; break end
+            end
+        else
+            validPlace = PlaceId == placeIds
+        end
+
         local Card = Instance.new("Frame", ScriptsContainer)
         Card.Size = UDim2.new(1, -10, 0, 70)
         Card.BackgroundColor3 = Secondary
@@ -444,13 +455,13 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
         local LoadBtn = Instance.new("TextButton", Card)
         LoadBtn.Size = UDim2.new(0, 70, 0, 28)
         LoadBtn.Position = UDim2.new(1, -85, 0.5, -14)
-        LoadBtn.BackgroundColor3 = PlaceId == placeId and Accent or Color3.fromRGB(100, 100, 100)
-        LoadBtn.Text = PlaceId == placeId and "LOAD" or "WRONG GAME"
+        LoadBtn.BackgroundColor3 = validPlace and Accent or Color3.fromRGB(100, 100, 100)
+        LoadBtn.Text = validPlace and "LOAD" or "WRONG GAME"
         LoadBtn.TextColor3 = TextColor
-        LoadBtn.TextSize = PlaceId == placeId and 12 or 9
+        LoadBtn.TextSize = validPlace and 12 or 9
         LoadBtn.Font = Enum.Font.GothamBold
         Instance.new("UICorner", LoadBtn).CornerRadius = UDim.new(0, 5)
-        if PlaceId == placeId then
+        if validPlace then
             LoadBtn.MouseEnter:Connect(function() TweenService:Create(LoadBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(200, 0, 0)}):Play() end)
             LoadBtn.MouseLeave:Connect(function() TweenService:Create(LoadBtn, TweenInfo.new(0.2), {BackgroundColor3 = Accent}):Play() end)
             LoadBtn.MouseButton1Click:Connect(function()
@@ -466,20 +477,20 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
             Name = "Ravine FIAS",
             Description = "Combat, Farming, ESP, Teleports, Visuals & More",
             Icon = "https://tr.rbxcdn.com/180DAY-7673b5e1c0a3a7b07c67aa457adf05ea/768/432/Image/Webp/noFilter",
-            PlaceId = 17698425045,
+            PlaceIds = FIAS_IDS,
             ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
         },
         {
             Name = "Chicken Farm",
             Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
             Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
-            PlaceId = 137233438285284,
+            PlaceIds = 137233438285284,
             ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/ac60f1676292ca48e5182d186ffe451cba01de6464c2b02153ff36b6adee900f/download"
         },
     }
 
     for _, scriptData in ipairs(Scripts) do
-        CreateCard(scriptData.Name, scriptData.Description, scriptData.Icon, scriptData.PlaceId, scriptData.ScriptUrl)
+        CreateCard(scriptData.Name, scriptData.Description, scriptData.Icon, scriptData.PlaceIds, scriptData.ScriptUrl)
     end
 
     local dragging, dragStart, startPos
