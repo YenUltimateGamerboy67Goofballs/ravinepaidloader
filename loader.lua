@@ -477,7 +477,7 @@ local Scripts = {
         Name = "Ravine FIAS",
         Description = "Combat, Farming, ESP, Teleports, Visuals & More",
         Icon = "https://tr.rbxcdn.com/180DAY-7673b5e1c0a3a7b07c67aa457adf05ea/768/432/Image/Webp/noFilter",
-        PlaceIds = {17698425045, 86098085533596, 18248633989},
+        PlaceIds = {17698425045, 86098085533596, 18248633989, 118758941554698},
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
     },
     {
