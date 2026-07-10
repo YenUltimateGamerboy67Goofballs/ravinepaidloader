@@ -484,7 +484,7 @@ local Scripts = {
         Name = "Ravine Fight on A Baseplate",
         Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More",
         Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
-        PlaceIds = {130960021905304},
+        PlaceIds = {130960021905304, 137378874406308},
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
     },
     {
