@@ -481,7 +481,14 @@ local Scripts = {
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
     },
     {
-        Name = "Chicken Farm",
+        Name = "Ravine Fight on A Baseplate",
+        Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More",
+        Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
+        PlaceIds = {130960021905304},
+        ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
+    },
+    {
+        Name = "Ravine Chicken Farm",
         Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
         Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
         PlaceIds = {137233438285284},
