@@ -410,11 +410,11 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     ScriptList.HorizontalAlignment = Enum.HorizontalAlignment.Center
     ScriptList.SortOrder = Enum.SortOrder.LayoutOrder
 
-    local FIAS_IDS = {17698425045, 86098085533596, 18248633989}
-
     local function CreateCard(name, desc, icon, placeIds, scriptUrl)
         local validPlace = false
-        if type(placeIds) == "table" then
+        if placeIds == "any" then
+            validPlace = true
+        elseif type(placeIds) == "table" then
             for _, id in ipairs(placeIds) do
                 if PlaceId == id then validPlace = true; break end
             end
@@ -491,7 +491,7 @@ local Scripts = {
         Name = "Ravine Rivals",
         Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
         Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
-        PlaceIds = {137233438285284},
+        PlaceIds = "any",
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"
     },
     {
