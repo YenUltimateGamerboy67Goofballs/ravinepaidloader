@@ -476,28 +476,28 @@ local Scripts = {
     {
         Name = "Ravine FIAS",
         Description = "Combat, Farming, ESP, Teleports, Visuals & More",
-        Icon = "https://tr.rbxcdn.com/180DAY-7673b5e1c0a3a7b07c67aa457adf05ea/768/432/Image/Webp/noFilter",
+        Icon = "rbxassetid://128553373538203",
         PlaceIds = {17698425045, 86098085533596, 18248633989, 118758941554698},
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
     },
     {
         Name = "Ravine Fight on A Baseplate",
         Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More",
-        Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
+        Icon = "rbxassetid://128553373538203",
         PlaceIds = {130960021905304, 137378874406308},
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
     },
     {
         Name = "Ravine Rivals",
         Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
-        Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
+        Icon = "rbxassetid://128553373538203",
         PlaceIds = "any",
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"
     },
     {
         Name = "Ravine Chicken Farm",
         Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
-        Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
+        Icon = "rbxassetid://128553373538203",
         PlaceIds = {137233438285284},
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/ac60f1676292ca48e5182d186ffe451cba01de6464c2b02153ff36b6adee900f/download"
     },
