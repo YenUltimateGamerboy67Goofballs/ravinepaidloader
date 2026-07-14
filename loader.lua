@@ -488,6 +488,13 @@ local Scripts = {
         ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
     },
     {
+        Name = "Ravine Rivals",
+        Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
+        Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
+        PlaceIds = {137233438285284},
+        ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"
+    },
+    {
         Name = "Ravine Chicken Farm",
         Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
         Icon = "https://tr.rbxcdn.com/180DAY-fb0455d36bd1cd15f946c57abb8f2c6d/256/256/Image/Webp/noFilter",
