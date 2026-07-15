@@ -1,4 +1,4 @@
--- Ravine Scripts - PAID Loader
+
 local Junkie = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
 Junkie.service = "ravinepaid"
 Junkie.identifier = "1064771"
@@ -195,7 +195,7 @@ local result = (function()
     getKey.Size = UDim2.new(0.47, 0, 0, 38)
     getKey.Position = UDim2.new(0, 0, 0, 145)
     getKey.BackgroundColor3 = Colors.background
-    getKey.Text = "Get Key"
+    getKey.Text = "Discord"
     getKey.TextColor3 = Colors.gold
     getKey.TextSize = 13
     getKey.Font = Enum.Font.GothamBold
@@ -204,14 +204,14 @@ local result = (function()
     Instance.new("UICorner", getKey).CornerRadius = UDim.new(0, 10)
     Instance.new("UIStroke", getKey).Color = Colors.gold
 
+    
     getKey.MouseButton1Click:Connect(function()
-        local link = Junkie.get_key_link()
-        if link and setclipboard then
-            setclipboard(link)
-            status.Text = "Link copied to clipboard!"
+        if DISCORD_LINK and setclipboard then
+            setclipboard(DISCORD_LINK)
+            status.Text = "Discord link copied! Join for key!"
             status.TextColor3 = Colors.success
         else
-            status.Text = "Failed to get link"
+            status.Text = "Failed to copy link"
             status.TextColor3 = Colors.error
         end
         task.wait(3)
@@ -280,7 +280,7 @@ local result = (function()
     return getgenv().SCRIPT_KEY
 end)()
 
--- Paid Loader UI
+
 if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     local Players = game:GetService("Players")
     local TweenService = game:GetService("TweenService")
@@ -288,6 +288,8 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     local CoreGui = game:GetService("CoreGui")
     local player = Players.LocalPlayer
     local PlaceId = game.PlaceId
+
+    local DISCORD_LINK = "https://discord.gg/get-ravine"
 
     local RavineLoader = Instance.new("ScreenGui")
     RavineLoader.Name = "RavineLoader"
@@ -386,7 +388,8 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     StatsLabel.TextSize = 12
     StatsLabel.Font = Enum.Font.Gotham
 
-    local FooterLabel = Instance.new("TextLabel", Header)
+    
+    local FooterLabel = Instance.new("TextButton", Header)
     FooterLabel.Size = UDim2.new(1, -40, 0, 15)
     FooterLabel.Position = UDim2.new(0, 20, 0, 118)
     FooterLabel.BackgroundTransparency = 1
@@ -395,6 +398,11 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     FooterLabel.TextSize = 10
     FooterLabel.Font = Enum.Font.Gotham
     FooterLabel.TextXAlignment = Enum.TextXAlignment.Center
+    FooterLabel.MouseButton1Click:Connect(function()
+        if setclipboard then
+            setclipboard(DISCORD_LINK)
+        end
+    end)
 
     local ScriptsContainer = Instance.new("ScrollingFrame", Main)
     ScriptsContainer.Size = UDim2.new(1, -10, 1, -150)
@@ -472,36 +480,36 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
         ScriptsContainer.CanvasSize = UDim2.new(0, 0, 0, ScriptList.AbsoluteContentSize.Y + 20)
     end
 
-local Scripts = {
-    {
-        Name = "Ravine FIAS",
-        Description = "Combat, Farming, ESP, Teleports, Visuals & More",
-        Icon = "rbxassetid://128553373538203",
-        PlaceIds = {17698425045, 86098085533596, 18248633989, 118758941554698},
-        ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
-    },
-    {
-        Name = "Ravine Fight on A Baseplate",
-        Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More",
-        Icon = "rbxassetid://128553373538203",
-        PlaceIds = {130960021905304, 137378874406308},
-        ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
-    },
-    {
-        Name = "Ravine Rivals",
-        Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
-        Icon = "rbxassetid://128553373538203",
-        PlaceIds = "any",
-        ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"
-    },
-    {
-        Name = "Ravine Chicken Farm",
-        Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
-        Icon = "rbxassetid://128553373538203",
-        PlaceIds = {137233438285284},
-        ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/ac60f1676292ca48e5182d186ffe451cba01de6464c2b02153ff36b6adee900f/download"
-    },
-}
+    local Scripts = {
+        {
+            Name = "Ravine FIAS",
+            Description = "Combat, Farming, ESP, Teleports, Visuals & More",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {17698425045, 86098085533596, 18248633989, 118758941554698},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
+        },
+        {
+            Name = "Ravine Fight on A Baseplate",
+            Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {130960021905304, 137378874406308},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
+        },
+        {
+            Name = "Ravine Rivals",
+            Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = "any",
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"
+        },
+        {
+            Name = "Ravine Chicken Farm",
+            Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {137233438285284},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/ac60f1676292ca48e5182d186ffe451cba01de6464c2b02153ff36b6adee900f/download"
+        },
+    }
 
     for _, scriptData in ipairs(Scripts) do
         CreateCard(scriptData.Name, scriptData.Description, scriptData.Icon, scriptData.PlaceIds, scriptData.ScriptUrl)
