@@ -506,7 +506,7 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
             Name = "Ravine Knife Duels",
             Description = "Silent Aim, ESP, Speed Boost, Fly",
             Icon = "rbxassetid://128553373538203",
-            PlaceIds = "{112731528776884}",
+            PlaceIds = "any",
             ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/06fb64a618101dcfb7df23d16280bf8c83d9848a2704ffab6b91eecabc7521d3/download"
         },
         {
