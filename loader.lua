@@ -1,3 +1,6 @@
+
+getgenv().SCRIPT_KEY = "KEYLESS"
+
 local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/refs/heads/main/"
 local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
 Library.Scheme.AccentColor = Color3.fromRGB(255, 0, 0)
