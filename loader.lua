@@ -1,12 +1,7 @@
-
 local Junkie = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
 Junkie.service = "ravinepaid"
 Junkie.identifier = "1064771"
 Junkie.provider = "ravinepaid"
-
-
-getgenv().SCRIPT_KEY = "KEYLESS"
-
 
 local result = (function()
     getgenv().UI_CLOSED = false
@@ -208,6 +203,7 @@ local result = (function()
     Instance.new("UICorner", getKey).CornerRadius = UDim.new(0, 10)
     Instance.new("UIStroke", getKey).Color = Colors.gold
 
+    
     getKey.MouseButton1Click:Connect(function()
         if DISCORD_LINK and setclipboard then
             setclipboard(DISCORD_LINK)
@@ -242,15 +238,7 @@ local result = (function()
         end
         status.Text = "Verifying..."
         status.TextColor3 = Colors.gold
-        
-        -- Check key (KEYLESS accepted)
-        local r
-        if getgenv().SCRIPT_KEY == "KEYLESS" then
-            r = {valid = true}
-        else
-            r = Junkie.check_key(k)
-        end
-        
+        local r = Junkie.check_key(k)
         if r and r.valid then
             saveKey(k)
             getgenv().SCRIPT_KEY = k
@@ -271,17 +259,6 @@ local result = (function()
     getKey.MouseLeave:Connect(function() TweenService:Create(getKey, TweenInfo.new(0.15), {BackgroundColor3 = Colors.background}):Play() end)
     verify.MouseEnter:Connect(function() TweenService:Create(verify, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(255, 200, 60)}):Play() end)
     verify.MouseLeave:Connect(function() TweenService:Create(verify, TweenInfo.new(0.15), {BackgroundColor3 = Colors.gold}):Play() end)
-
-    if getgenv().SCRIPT_KEY == "KEYLESS" then
-        status.Text = "Keyless mode activated!"
-        status.TextColor3 = Colors.success
-        task.wait(0.3)
-        TweenService:Create(main, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
-        TweenService:Create(overlay, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
-        task.wait(0.2)
-        gui:Destroy()
-        return getgenv().SCRIPT_KEY
-    end
 
     local saved = loadKey()
     if saved then
@@ -367,7 +344,7 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     Version.Size = UDim2.new(0, 100, 0, 20)
     Version.Position = UDim2.new(0, 80, 0, 48)
     Version.BackgroundTransparency = 1
-    Version.Text = "v1.0.0"
+    Version.Text = "v1.0.0 | PAID"
     Version.TextColor3 = Gold
     Version.TextSize = 12
     Version.Font = Enum.Font.Gotham
@@ -405,11 +382,12 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     local StatsLabel = Instance.new("TextLabel", StatsBar)
     StatsLabel.Size = UDim2.new(1, 0, 1, 0)
     StatsLabel.BackgroundTransparency = 1
-    StatsLabel.Text = "Welcome, " .. player.DisplayName .. " | Made by xaaaxaa/yen"
+    StatsLabel.Text = "Welcome, " .. player.DisplayName .. " | Made by xaaaxaa/yen | PAID"
     StatsLabel.TextColor3 = TextDim
     StatsLabel.TextSize = 12
     StatsLabel.Font = Enum.Font.Gotham
 
+    
     local FooterLabel = Instance.new("TextButton", Header)
     FooterLabel.Size = UDim2.new(1, -40, 0, 15)
     FooterLabel.Position = UDim2.new(0, 20, 0, 118)
@@ -420,7 +398,9 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     FooterLabel.Font = Enum.Font.Gotham
     FooterLabel.TextXAlignment = Enum.TextXAlignment.Center
     FooterLabel.MouseButton1Click:Connect(function()
-        if setclipboard then setclipboard(DISCORD_LINK) end
+        if setclipboard then
+            setclipboard(DISCORD_LINK)
+        end
     end)
 
     local ScriptsContainer = Instance.new("ScrollingFrame", Main)
@@ -439,10 +419,15 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
 
     local function CreateCard(name, desc, icon, placeIds, scriptUrl)
         local validPlace = false
-        if placeIds == "any" then validPlace = true
+        if placeIds == "any" then
+            validPlace = true
         elseif type(placeIds) == "table" then
-            for _, id in ipairs(placeIds) do if PlaceId == id then validPlace = true; break end end
-        else validPlace = PlaceId == placeIds end
+            for _, id in ipairs(placeIds) do
+                if PlaceId == id then validPlace = true; break end
+            end
+        else
+            validPlace = PlaceId == placeIds
+        end
 
         local Card = Instance.new("Frame", ScriptsContainer)
         Card.Size = UDim2.new(1, -10, 0, 70)
@@ -495,12 +480,48 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
     end
 
     local Scripts = {
-        {Name = "Ravine FIAS", Description = "Combat, Farming, ESP, Teleports, Visuals & More", Icon = "rbxassetid://128553373538203", PlaceIds = {17698425045, 86098085533596, 18248633989, 118758941554698}, ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"},
-        {Name = "Ravine Fight on A Baseplate", Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More", Icon = "rbxassetid://128553373538203", PlaceIds = {130960021905304, 137378874406308}, ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"},
-        {Name = "Ravine Rivals", Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly", Icon = "rbxassetid://128553373538203", PlaceIds = "any", ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"},
-        {Name = "Ravine Knife Duels", Description = "Silent Aim, ESP, Speed Boost, Fly", Icon = "rbxassetid://128553373538203", PlaceIds = "any", ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/06fb64a618101dcfb7df23d16280bf8c83d9848a2704ffab6b91eecabc7521d3/download"},
-        {Name = "Ravine Survive Zombie Arena", Description = "Instant Kill All Zombies, Auto Farm, ESP, Fly", Icon = "rbxassetid://128553373538203", PlaceIds = "any", ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/b8d787b15f68fa67fb83e0e26281fd247f00065fe464e7d7c7fbd5218bc3e767/download"},
-        {Name = "Ravine Chicken Farm", Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks", Icon = "rbxassetid://128553373538203", PlaceIds = {137233438285284}, ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/ac60f1676292ca48e5182d186ffe451cba01de6464c2b02153ff36b6adee900f/download"},
+        {
+            Name = "Ravine FIAS",
+            Description = "Combat, Farming, ESP, Teleports, Visuals & More",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {17698425045, 86098085533596, 18248633989, 118758941554698},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/dd10132a062f2844864b34294b4ca7ebdc9739df46f35337458565dab152bb12/download"
+        },
+        {
+            Name = "Ravine Fight on A Baseplate",
+            Description = "Kill Aura, Auto Weave, No Collide, Anti Shake, & More",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {130960021905304, 137378874406308},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
+        },
+        {
+            Name = "Ravine Rivals",
+            Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = "any",
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/90c1d17e56dde077f07093c3ed646b294ddff0ed0e463355c39d4de0c5ee3319/download"
+        },
+        {
+            Name = "Ravine Knife Duels",
+            Description = "Silent Aim, ESP, Speed Boost, Fly",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = "any",
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/06fb64a618101dcfb7df23d16280bf8c83d9848a2704ffab6b91eecabc7521d3/download"
+        },
+        {
+            Name = "Ravine Survive Zombie Arena",
+            Description = "Instant Kill All Zombies, Auto Farm, ESP, Speed Boost, Fly",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = "any",
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/b8d787b15f68fa67fb83e0e26281fd247f00065fe464e7d7c7fbd5218bc3e767/download"
+        },
+        {
+            Name = "Ravine Chicken Farm",
+            Description = "Auto Collect, Deposit, Upgrade, Merge, Lucky Blocks",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {137233438285284},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/ac60f1676292ca48e5182d186ffe451cba01de6464c2b02153ff36b6adee900f/download"
+        },
     }
 
     for _, scriptData in ipairs(Scripts) do
