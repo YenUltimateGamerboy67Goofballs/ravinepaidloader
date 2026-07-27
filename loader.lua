@@ -506,7 +506,7 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
             Description = "Silent Aim, Bullet TP, ESP",
             Icon = "rbxassetid://128553373538203",
             PlaceIds = "any",
-            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/06fb64a618101dcfb7df23d16280bf8c83d9848a2704ffab6b91eecabc7521d3/download"
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/d81ba2edf32bffb3cff956b1d287f7eb6a9d1afd4f02c2bc2d1a3a69982daeb0/download"
         },
         {
             Name = "Ravine Knife Duels",
