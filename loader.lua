@@ -495,6 +495,13 @@ if getgenv().SCRIPT_KEY and getgenv().SCRIPT_KEY ~= "" then
             ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/1d349056bca8764ab9639f23872367047609c580a6880b67018eadf7835a71b6/download"
         },
         {
+            Name = "Ravine Catch a Fade",
+            Description = "Kill Aura, Ragdoll Aura, Kill Farm, Cage Fight Farm, Walkspeed, Auto Buy Gloves",
+            Icon = "rbxassetid://128553373538203",
+            PlaceIds = {103820982596314},
+            ScriptUrl = "https://api.jnkie.com/api/v1/luascripts/public/403b13257ca9ae8162d39889c2da6f101ddd6ff9a27adc9b6b108eb2211eccab/download"
+        },
+        {
             Name = "Ravine Rivals",
             Description = "Aimbot, Silent Aim, ESP, Speed Boost, Fly",
             Icon = "rbxassetid://128553373538203",
